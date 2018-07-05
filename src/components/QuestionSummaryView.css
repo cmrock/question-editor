@@ -1,0 +1,6 @@
+.custom > tbody> tr> td {
+	text-align: left;
+}
+.custom {
+	width: 60%;
+}

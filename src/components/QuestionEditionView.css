@@ -1,0 +1,66 @@
+.inputField {
+	width: 50px;
+}
+.icon {
+	font-size: 30px !important;
+	-webkit-text-stroke: 3px !important;
+	color: darkgrey;
+}
+.imgDiv {
+	width: 30px;
+	height: 30px;
+	background-color: gainsboro;
+	cursor: pointer;
+}
+img {
+	width: 30px !important;
+	height: 30px !important;
+}
+.fa {
+	margin-top: 7.5px;
+}
+.title {
+  text-align: left;
+  margin: 20px;
+}
+.upload {
+	visibility: hidden;
+}
+
+.add {
+	color: green;
+	cursor: pointer;
+}
+.remove {
+  color: red;
+  cursor: pointer;
+}
+.border {
+  border-right: 1px solid;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+
+  .modal-main {
+    position:fixed;
+    background: white;
+    width: 80%;
+    height: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
