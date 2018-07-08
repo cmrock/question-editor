@@ -241,7 +241,7 @@ class QuestionEditionView extends Component {
 				</table>
 				
 				<ReactModal isOpen={this.state.tmpImg.showModal} ariaHideApp={false} style={customStyles}>
-		          <input type="file" onChange={(e)=>this.fileChangedHandler(e,this.state.tmpImg.activeCellName)} />
+		          <input type="file" accept="image/*" onChange={(e)=>this.fileChangedHandler(e,this.state.tmpImg.activeCellName)} />
 		          <button onClick={this.handleSubmitAndCloseModal}>Upload</button>
 		        </ReactModal>
       		</div>
