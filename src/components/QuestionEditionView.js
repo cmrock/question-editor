@@ -13,16 +13,8 @@ class QuestionEditionView extends Component {
      		tmpImg: {showModal: false, activeCellName:''}
      		
      	};
-     	this.addNewRow = this.addNewRow.bind(this);
-     	this.addNewColumn = this.addNewColumn.bind(this);
-     	this.removeRow = this.removeRow.bind(this);
-     	this.removeColumn = this.removeColumn.bind(this);
-
-     	this.handleOpenModal = this.handleOpenModal.bind(this);
+     	
     	this.handleSubmitAndCloseModal = this.handleSubmitAndCloseModal.bind(this);
-    	this.fileChangedHandler = this.fileChangedHandler.bind(this);
-    	this.textChange = this.textChange.bind(this);
-    	this.titleChange = this.titleChange.bind(this);
 	}
 	componentDidMount() {
         // pass default state to summary component
