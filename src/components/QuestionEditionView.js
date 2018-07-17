@@ -8,8 +8,8 @@ class QuestionEditionView extends Component {
         //default state
      	this.state = {
      		title: 'Title of the question',
-     		rows: [{name:'Row1',file:'', preview:''},{name:'Row2',file:'', preview:''}],
-     		cols: [{name:'Col1',file:'', preview:''},{name:'Col2',file:'', preview:''}],
+     		rows: [{id: 'row1', name:'Row1',file:'', preview:''},{id: 'row2', name:'Row2',file:'', preview:''}],
+     		cols: [{id: 'col1', name:'Col1',file:'', preview:''},{id: 'col2', name:'Col2',file:'', preview:''}],
      		tmpImg: {showModal: false, activeCellName:''}
      		
      	};
@@ -26,6 +26,7 @@ class QuestionEditionView extends Component {
 	* */
 	titleChange (event){
 		this.setState({title: event.target.innerHTML});
+		console.log(this.state.title);
         // pass state to summary component
 		this.props.getStateData(this.state);
 	}
@@ -35,7 +36,7 @@ class QuestionEditionView extends Component {
     * */
 	textChange (event, cell){
 	    // column text changes
-      	if(cell.name.includes('Col')){
+      	if(cell.id.includes('col')){
 	    	const cols = this.state.cols;
 	    	cols.forEach((col) => {
 	    		if(col.name === cell.name){
@@ -46,7 +47,7 @@ class QuestionEditionView extends Component {
 	    	this.setState({cols: cols});
 	    }
 	    // row text changes
-	    if(cell.name.includes('Row')){
+	    if(cell.id.includes('row')){
 	    	const rows = this.state.rows;
 	    	rows.forEach((row) => {
 	    		if(row.name === cell.name){
@@ -66,7 +67,7 @@ class QuestionEditionView extends Component {
 	addNewRow () {
 		const len = this.state.rows.length+1;
 		const rows = this.state.rows;
-		rows.push({name:'Row'+len, file:'', preview:''});
+		rows.push({id:'row'+len, name:'Row'+len, file:'', preview:''});
 		this.setState({rows: rows});
         // pass state to summary component
 		this.props.getStateData(this.state);
@@ -78,7 +79,7 @@ class QuestionEditionView extends Component {
 	addNewColumn () {
 		const len = this.state.cols.length+1;
 		const cols = this.state.cols;
-		cols.push({name:'Col'+len, file:'', preview:''});
+		cols.push({id: 'col'+len, name:'Col'+len, file:'', preview:''});
 		this.setState({cols: cols});
         // pass state to summary component
 		this.props.getStateData(this.state);
@@ -133,8 +134,9 @@ class QuestionEditionView extends Component {
 	    // uploaded file
 	    let file = event.target.files[0];
 	    //upload image to column
-	    if(cell.name.includes('Col')){
+	    if(cell.id.includes('col')){
 	    	const cols = this.state.cols;
+
 	    	cols.forEach((col) => {
 	    		if(col.name === cell.name){
 	    			reader.onloadend = () => {
@@ -144,10 +146,9 @@ class QuestionEditionView extends Component {
 	    		}
 	    	});
 	    	this.setState({cols: cols});
-	    	
 	    }
 	    // upload image to row
-	    if(cell.name.includes('Row')){
+	    if(cell.id.includes('row')){
 	    	const rows = this.state.rows;
 	    	rows.forEach((row) => {
 	    		if(row.name === cell.name){
